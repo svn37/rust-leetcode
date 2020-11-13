@@ -53,6 +53,6 @@ mod tests {
     #[test]
     fn test_1609() {
         // TODO add norma tests with binary tree construction
-        assert!(Solution::is_even_odd_tree(None))
+        assert_eq!(Solution::is_even_odd_tree(None), false)
     }
 }
