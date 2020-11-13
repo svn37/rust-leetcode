@@ -49,10 +49,40 @@ impl Solution {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::solutions::tests::*;
 
     #[test]
     fn test_1609() {
-        // TODO add norma tests with binary tree construction
-        assert_eq!(Solution::is_even_odd_tree(None), false)
+        assert_eq!(Solution::is_even_odd_tree(None), false);
+        assert_eq!(
+            Solution::is_even_odd_tree(to_tree(vec![
+                Some(1),
+                Some(10),
+                Some(4),
+                Some(3),
+                None,
+                Some(7),
+                Some(9),
+                Some(12),
+                Some(8),
+                Some(6),
+                None,
+                None,
+                Some(2)
+            ])),
+            true
+        );
+        assert_eq!(
+            Solution::is_even_odd_tree(to_tree(vec![
+                Some(5),
+                Some(4),
+                Some(2),
+                Some(3),
+                Some(3),
+                Some(7),
+            ])),
+            false
+        );
+        assert_eq!(Solution::is_even_odd_tree(to_tree(vec![Some(1)])), true)
     }
 }

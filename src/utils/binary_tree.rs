@@ -17,4 +17,18 @@ impl TreeNode {
             right: None,
         }
     }
+
+    pub fn left_child(self, node: TreeNode) -> Self {
+        TreeNode {
+            left: Some(Rc::new(RefCell::new(node))),
+            ..self
+        }
+    }
+
+    pub fn right_child(self, node: TreeNode) -> Self {
+        TreeNode {
+            right: Some(Rc::new(RefCell::new(node))),
+            ..self
+        }
+    }
 }
