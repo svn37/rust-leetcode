@@ -104,39 +104,16 @@ impl Solution {
 mod tests {
     use super::*;
     use crate::solutions::tests::*;
+    use crate::tree;
 
     #[test]
     fn test_1609() {
-        assert_eq!(Solution::is_even_odd_tree(None), false);
+        assert_eq!(Solution::is_even_odd_tree(tree![]), false);
         assert_eq!(
-            Solution::is_even_odd_tree(to_tree(vec![
-                Some(1),
-                Some(10),
-                Some(4),
-                Some(3),
-                None,
-                Some(7),
-                Some(9),
-                Some(12),
-                Some(8),
-                Some(6),
-                None,
-                None,
-                Some(2)
-            ])),
+            Solution::is_even_odd_tree(tree![1, 10, 4, 3, null, 7, 9, 12, 8, 6, null, null, 2]),
             true
         );
-        assert_eq!(
-            Solution::is_even_odd_tree(to_tree(vec![
-                Some(5),
-                Some(4),
-                Some(2),
-                Some(3),
-                Some(3),
-                Some(7),
-            ])),
-            false
-        );
-        assert_eq!(Solution::is_even_odd_tree(to_tree(vec![Some(1)])), true)
+        assert_eq!(Solution::is_even_odd_tree(tree![5, 4, 2, 3, 3, 7]), false);
+        assert_eq!(Solution::is_even_odd_tree(tree![1]), true)
     }
 }

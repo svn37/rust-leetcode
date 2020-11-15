@@ -11,8 +11,20 @@ mod tests {
 
     use crate::utils::binary_tree::TreeNode;
 
-    // TODO values is expected to be valid (i.e. corresponding to correct binary tree and containing
-    // the correct number of nulls where needed)
+    #[macro_export]
+    macro_rules! tree {
+        () => {
+            None
+        };
+        ($($e:expr),*) => {
+            {
+                let vec = vec![$(stringify!($e)), *];
+                let vec = vec.iter().map(|v| v.parse::<i32>().ok()).collect::<Vec<_>>();
+                to_tree(vec)
+            }
+        };
+    }
+
     pub fn to_tree(values: Vec<Option<i32>>) -> Option<Rc<RefCell<TreeNode>>> {
         if values.is_empty() {
             return None;
