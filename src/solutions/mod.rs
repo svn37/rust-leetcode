@@ -1,5 +1,6 @@
 pub mod s0046_permutations;
 pub mod s0456_132_pattern;
+pub mod s0679_24_game;
 pub mod s1559_detect_cycles_in_2d_grid;
 pub mod s1609_even_odd_tree;
 
