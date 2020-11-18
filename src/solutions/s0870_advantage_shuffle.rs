@@ -58,14 +58,10 @@ impl Solution {
         while let Some(Node(idx, val)) = heap.pop() {
             if val < a[j] {
                 result[idx] = a[j];
-                if j > 0 {
-                    j -= 1;
-                }
+                j = j.wrapping_sub(1);
             } else {
                 result[idx] = a[i];
-                if i < a.len() - 1 {
-                    i += 1;
-                }
+                i = i.wrapping_add(1);
             }
         }
         result
