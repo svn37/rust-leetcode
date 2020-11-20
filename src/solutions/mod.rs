@@ -4,6 +4,7 @@ pub mod s0679_24_game;
 pub mod s0870_advantage_shuffle;
 pub mod s1559_detect_cycles_in_2d_grid;
 pub mod s1609_even_odd_tree;
+pub mod s1636_sort_array_by_increasing_frequency;
 
 #[cfg(test)]
 mod tests {
