@@ -24,23 +24,7 @@
 // </div>
 // </div>
 //
-use std::cmp::Ordering;
 use std::collections::BinaryHeap;
-
-#[derive(Eq, PartialEq)]
-struct Node(usize, i32);
-
-impl Ord for Node {
-    fn cmp(&self, other: &Self) -> Ordering {
-        self.1.cmp(&other.1)
-    }
-}
-
-impl PartialOrd for Node {
-    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
-        Some(self.cmp(other))
-    }
-}
 
 pub struct Solution {}
 
@@ -51,11 +35,11 @@ impl Solution {
         a.sort();
         let mut heap = BinaryHeap::new();
         for (idx, &value) in b.iter().enumerate() {
-            heap.push(Node(idx, value));
+            heap.push((value, idx));
         }
 
         let (mut i, mut j) = (0, a.len() - 1);
-        while let Some(Node(idx, val)) = heap.pop() {
+        while let Some((val, idx)) = heap.pop() {
             if val < a[j] {
                 result[idx] = a[j];
                 j = j.wrapping_sub(1);
