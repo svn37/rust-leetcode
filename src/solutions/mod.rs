@@ -1,4 +1,5 @@
 pub mod s0046_permutations;
+pub mod s0347_top_k_frequent_elements;
 pub mod s0456_132_pattern;
 pub mod s0679_24_game;
 pub mod s0870_advantage_shuffle;
