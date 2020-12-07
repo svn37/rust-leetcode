@@ -37,12 +37,11 @@ mod tests {
             return None;
         }
         let mut nodes: Vec<_> = values.iter().map(|v| create_node(*v)).collect();
-        let mut idx = 0;
 
-        for children in nodes[1..].chunks(2) {
+        for (idx, children) in nodes[1..].chunks(2).enumerate() {
             let parent = nodes.get(idx).unwrap();
 
-            if children.len() > 0 {
+            if !children.is_empty() {
                 if let Some(parent_node) = parent {
                     parent_node.borrow_mut().left = children.get(0).unwrap().clone();
                 }
@@ -53,7 +52,6 @@ mod tests {
                     parent_node.borrow_mut().right = children.get(1).unwrap().clone();
                 }
             }
-            idx += 1;
         }
         nodes.remove(0)
     }

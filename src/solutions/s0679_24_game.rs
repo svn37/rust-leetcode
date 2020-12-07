@@ -53,35 +53,35 @@ impl Solution {
         false
     }
 
-    fn apply(nums: &Vec<f32>, i: usize, j: usize, func: &dyn Fn(f32, f32) -> f32) -> Vec<f32> {
-        let mut copy = nums.clone();
+    fn apply(nums: &[f32], i: usize, j: usize, func: &dyn Fn(f32, f32) -> f32) -> Vec<f32> {
+        let mut copy = nums.to_vec();
         copy[i] = func(nums[i], nums[j]);
         copy.remove(j);
         copy
     }
 
     fn add(a: f32, b: f32) -> f32 {
-        return a + b;
+        a + b
     }
 
     fn sub(a: f32, b: f32) -> f32 {
-        return a - b;
+        a - b
     }
 
     fn subr(a: f32, b: f32) -> f32 {
-        return b - a;
+        b - a
     }
 
     fn mul(a: f32, b: f32) -> f32 {
-        return a * b;
+        a * b
     }
 
     fn div(a: f32, b: f32) -> f32 {
-        return a / b;
+        a / b
     }
 
     fn divr(a: f32, b: f32) -> f32 {
-        return b / a;
+        b / a
     }
 }
 

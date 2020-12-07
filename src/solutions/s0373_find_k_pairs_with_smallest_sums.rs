@@ -51,7 +51,7 @@ pub struct Solution {}
 impl Solution {
     pub fn k_smallest_pairs(nums1: Vec<i32>, nums2: Vec<i32>, k: i32) -> Vec<Vec<i32>> {
         let mut result = Vec::new();
-        if nums1.len() == 0 || nums2.len() == 0 {
+        if nums1.is_empty() || nums2.is_empty() {
             return result;
         }
         let mut heap = BinaryHeap::new();

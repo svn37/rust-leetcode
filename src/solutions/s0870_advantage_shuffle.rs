@@ -32,7 +32,7 @@ impl Solution {
     pub fn advantage_count(mut a: Vec<i32>, b: Vec<i32>) -> Vec<i32> {
         let mut result = vec![0; a.len()];
 
-        a.sort();
+        a.sort_unstable();
         let mut heap = BinaryHeap::new();
         for (idx, &value) in b.iter().enumerate() {
             heap.push((value, idx));

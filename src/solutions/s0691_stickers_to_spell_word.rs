@@ -62,7 +62,7 @@ impl Solution {
         let mut dp = HashMap::new();
         dp.insert(String::new(), 0);
 
-        fn helper(dp: &mut HashMap<String, i32>, mp: &Vec<Vec<usize>>, target: String) -> i32 {
+        fn helper(dp: &mut HashMap<String, i32>, mp: &[Vec<usize>], target: String) -> i32 {
             if let Some(&res) = dp.get(&target) {
                 return res;
             }
@@ -78,7 +78,7 @@ impl Solution {
                     continue;
                 }
                 let mut s = String::new();
-                for j in 0..26 {
+                for (j, _) in tar.iter().enumerate() {
                     if tar[j] > mp[i][j] {
                         let c = char::from_u32((j + 'a' as usize) as u32).unwrap();
                         (0..tar[j] - mp[i][j]).for_each(|_| {

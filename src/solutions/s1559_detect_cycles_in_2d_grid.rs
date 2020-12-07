@@ -85,7 +85,7 @@ impl Solution {
         }
         grid[x][y] = upcase_letter;
 
-        return (x > 0
+        (x > 0
             && prev != (x - 1, y)
             && Solution::find_cycle(x - 1, y, letter, (x, y), grid, height, width))
             || (x + 1 < height
@@ -96,7 +96,7 @@ impl Solution {
                 && Solution::find_cycle(x, y - 1, letter, (x, y), grid, height, width))
             || (y + 1 < width
                 && prev != (x, y + 1)
-                && Solution::find_cycle(x, y + 1, letter, (x, y), grid, height, width));
+                && Solution::find_cycle(x, y + 1, letter, (x, y), grid, height, width))
     }
 }
 
